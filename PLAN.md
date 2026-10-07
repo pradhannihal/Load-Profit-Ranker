@@ -20,10 +20,10 @@ Status: planning · Last updated: 2026-10-05 · Source spec: `trucker-app-prompt
 2. **Five learning goals at once** (AWS, React, IaC, testing/CI, DynamoDB) is a lot.
    That's OK only because each one is kept to its *minimum useful slice* (see each
    milestone). Going deep on any one of them is post-MVP.
-3. **There is no free freight-rate API.** Lane-level spot rates are what DAT,
-   Truckstop, and Greenscreens sell. v1 doesn't compare to market rates. It answers
+3. **There is no free freight-rate API that can price any lane.** Lane-level spot rates are what DAT,
+   Truckstop, and Greenscreens sell. Free tiers (e.g. Freight Data Watch) cover only major
+   corridors, from vague sources (checked in M0, see `docs/learning-log.md`). v1 doesn't compare to market rates. It answers
    "does this load make *me* money?", which is the more useful question anyway.
-   (Verify this firsthand in M0. Don't take it on faith.)
 4. **The formula is the gate.** It's drafted in `docs/formula.md`, but its
    defaults are placeholders (ATRI fleet averages, a made-up $5,000/month fixed
    cost). Nothing gets built until Dad's real numbers are in and the 3-real-loads
@@ -171,7 +171,7 @@ when settings or the diesel price change later.
 | Source | Used for | Cost | Rate limits | Reliability / data quality |
 |---|---|---|---|---|
 | **EIA Open Data API v2**: weekly retail on-highway diesel (No. 2), by PADD region | Fuel cost | Free; needs a free API key (email signup) | Not tightly published; heavy use gets throttled. We make **~1 call/week**, so this is a non-issue. | Government source, generally stable. Published weekly (usually Monday afternoon ET, later after federal holidays; can pause during shutdowns). **It's a regional average, not his pump price**, and fuel-card discounts can be $0.10–0.50+/gal off, hence the manual override. Virginia is in PADD 1C (Lower Atlantic). |
-| Freight rate benchmarks (DAT, Truckstop, Greenscreens) | Not used in v1 | Paid, hundreds of $/mo | — | M0 task: confirm firsthand that no free lane-level source exists. Free aggregates (FRED, BTS, USDA truck rate reports) show market direction, not lane prices. |
+| Freight rate benchmarks (DAT, Truckstop, Greenscreens) | Not used in v1 | Paid, hundreds of $/mo | — | Checked in M0 (2026-10-06): Freight Data Watch has a free tier (100 req/day) for major corridors only, with vague sources. Free aggregates (FRED, BTS, USDA truck rate reports) show market direction, not lane prices. |
 | **OpenRouteService** (R1.5): directions (driving-hgv) + geocoding | Loaded and deadhead miles | Free; needs a free API key | Free tier ≈ 2,000 directions/day and ≈ 1,000 geocodes/day, plus per-minute caps (verify). One comparison ≈ 4 geocodes + 6 routes. | Run by HeiGIT (non-profit), OpenStreetMap data. Routed miles ≠ the broker's "practical miles" (PC*MILER), hence the manual override. |
 | **ATRI** *Operational Costs of Trucking, 2026* | Default maintenance ($0.215/mi) and tire ($0.050/mi) costs | Free report | — | Fleet-wide averages. Small fleets run higher. Replace with Dad's numbers. |
 | AWS Cognito | Auth (R2) | Free tier covers far more than 5 users (verify current MAU terms) | Default email sending is limited (~50 emails/day), plenty for 5 users | Managed; the managed login UI is plain but works. |
@@ -217,7 +217,7 @@ Hours are estimates for focused time. Each milestone ends with something you can
 ### M0 — The gate: formula + talking to Dad (week 1, ~4 h)
 - ✅ Formula drafted: `docs/formula.md` (rev 2: profit per day, trip context, 70-hr cycle, target, warnings).
 - Interview Dad (~1 h) using formula §8. Replace the placeholder defaults with his real numbers.
-- Firsthand check: confirm EIA diesel data is reachable for his region and that no free lane-rate API exists.
+- ✅ Firsthand check: EIA diesel is reachable for PADD 1C ($5.699, 2026-10-05); no free source can price any lane (see `docs/learning-log.md`).
 - Output: updated `docs/formula.md` + `docs/dad-interview.md`.
 - ✅ **Test:** run 3 of Dad's real past loads through the formula on paper. Dad agrees with each verdict, or you understand why not.
 

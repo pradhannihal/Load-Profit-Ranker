@@ -1,0 +1,23 @@
+# Secrets (keep the example file)
+.env
+.env.*
+!.env.example
+*.pem
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage/
+
+# Frontend
+node_modules/
+frontend/dist/
+
+# AWS SAM build output
+.aws-sam/
+
+# macOS
+.DS_Store
