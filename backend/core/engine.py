@@ -35,8 +35,9 @@ def compute_load(
 
     cycle_left = config.max_cycle_hours if trip.cycle_hours_remaining is None else trip.cycle_hours_remaining
     restart_needed = duty_hours > cycle_left
+    restart_days = config.restart_hours / 24 if restart_needed else 0.0
     if restart_needed:
-        hos_days += config.restart_hours / 24
+        hos_days += restart_days
         warnings = (
             *warnings,
             Issue("warning", "restart_needed", "trip_context.cycle_hours_remaining", "Needs a 34-hr restart."),
@@ -78,6 +79,7 @@ def compute_load(
         drive_hours=drive_hours,
         duty_hours=duty_hours,
         restart_needed=restart_needed,
+        restart_days=restart_days,
         hos_days=float(hos_days),
         schedule_days=schedule_days,
         days_used=days_used,

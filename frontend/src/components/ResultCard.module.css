@@ -1,0 +1,139 @@
+.card {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.winner {
+  border: 3px solid var(--sign-green);
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--sign-green);
+  margin: 4px;
+}
+
+.loss {
+  border-color: var(--loss);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rank {
+  padding: 3px 8px 0;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 800;
+}
+
+.name {
+  flex: 1;
+  font-size: 1.1rem;
+  padding-top: 3px;
+}
+
+.best {
+  padding: 3px 8px 0;
+  border-radius: 6px;
+  background: var(--sign-green);
+  color: var(--sign-green-ink);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.perDay {
+  margin: 2px 0 0;
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--profit);
+}
+
+.loss .perDay {
+  color: var(--loss);
+}
+
+.perDayUnit {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.badges:empty {
+  display: none;
+}
+
+.badgeLoss,
+.badgeOk,
+.badgeMiss {
+  padding: 3px 8px 1px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badgeLoss {
+  background: var(--sign-red);
+  color: var(--sign-red-ink);
+}
+
+.badgeOk {
+  background: var(--sign-green);
+  color: var(--sign-green-ink);
+}
+
+.badgeMiss {
+  border: 2px solid var(--ink-2);
+  color: var(--ink-2);
+}
+
+.sub {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+}
+
+.sub strong {
+  color: var(--ink);
+}
+
+.warnings {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.warnings li {
+  padding: 6px 10px 4px;
+  border-radius: 8px;
+  background: var(--sign-yellow);
+  color: var(--sign-yellow-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.why {
+  margin-top: 4px;
+  padding: 10px 12px 8px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  font-size: 0.95rem;
+}

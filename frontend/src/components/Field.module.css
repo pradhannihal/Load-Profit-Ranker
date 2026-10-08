@@ -1,0 +1,28 @@
+.field {
+  min-width: 0;
+}
+
+.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.unit {
+  font-weight: 400;
+}
+
+.hint,
+.error {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+}
+
+.hint {
+  color: var(--ink-2);
+}
+
+.error {
+  color: var(--loss);
+  font-weight: 700;
+}

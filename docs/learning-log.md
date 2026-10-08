@@ -55,3 +55,16 @@ Things worth knowing:
 
 ### In my own words
 <!-- Nihal: what happens, step by step, when the phone taps RANK? Browser -> Vite proxy -> Flask -> mapping -> engine -> back. -->
+
+## M3: frontend (2026-10-07)
+
+- Two screens: **Compare** (trip, diesel line, up to 3 loads, RANK, results) and **Settings**.
+  Settings, the trip and the loads are saved in the phone's localStorage (`haulmath.*.v1` keys).
+- All math stays on the server. The frontend only formats numbers and builds the request (`src/lib/request.js`).
+- Vega-Lite charts are lazy-loaded: Vega is ~290 kB gzipped, so it downloads only when results appear.
+- Chart colors come from the same CSS variables as the page, so light/dark mode switches both.
+- Tested in Chrome at 375 px (iPhone width), in light and dark mode, with the §6 example: the numbers match the fixtures.
+
+### In my own words
+<!-- Nihal: why does "Re-rank" appear only after you change something? (Hint: App.jsx compares the
+     request body to the one that was last ranked.) -->

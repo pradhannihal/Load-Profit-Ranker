@@ -90,6 +90,7 @@ class LoadResult:
     drive_hours: float
     duty_hours: float
     restart_needed: bool
+    restart_days: float  # part of hos_days that is the 34-hr restart (0 if none)
     hos_days: float
     schedule_days: int
     days_used: float

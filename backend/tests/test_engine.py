@@ -141,8 +141,10 @@ class TestCycleLimit:
         assert [r.label for r in ranking.results] == ["A", "C", "B"]
 
     def test_restart_warning(self, low_cycle, truck, loads):
-        b = by_label(rank_loads(low_cycle, truck, loads))["B"]
-        assert [w.code for w in b.warnings] == ["restart_needed"]
+        results = by_label(rank_loads(low_cycle, truck, loads))
+        assert [w.code for w in results["B"].warnings] == ["restart_needed"]
+        assert results["B"].restart_days == pytest.approx(34 / 24)
+        assert results["A"].restart_days == 0
 
     def test_whole_mode(self, low_cycle, whole, loads):
         ranking = rank_loads(low_cycle, whole, loads)

@@ -1,0 +1,65 @@
+/* Road-sign palette. Light by default; dark follows the phone setting. */
+:root {
+  --sign-green: #006a4e;      /* interstate guide sign */
+  --sign-green-ink: #ffffff;
+  --sign-yellow: #ffcd00;     /* warning sign */
+  --sign-yellow-ink: #111111;
+  --sign-red: #c8102e;        /* stop sign */
+  --sign-red-ink: #ffffff;
+
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --surface-2: #eef1ee;
+  --ink: #111511;
+  --ink-2: #4a524c;
+  --line: #c9d0ca;
+  --focus: #0057b8;
+
+  --profit: #00703c;
+  --loss: #c8102e;
+  --warn-bg: #fff4c2;
+  --warn-ink: #5c4400;
+
+  /* chart series */
+  --c-fuel: #b85c00;
+  --c-wear: #6b5ca5;
+  --c-tolls: #8a8f00;
+  --c-fixed: #5a6670;
+  --c-profit: #00703c;
+  --c-board: #8a959c;
+  --c-restart: #c8102e;
+  --c-schedule: #d9a400;
+
+  --radius: 12px;
+  --tap: 48px;
+  --font: "Overpass", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sign-green: #0b7d5c;
+    --bg: #0e1311;
+    --surface: #161d1a;
+    --surface-2: #1e2723;
+    --ink: #eef3ef;
+    --ink-2: #a9b4ad;
+    --line: #34413b;
+    --focus: #6aa8ff;
+
+    --profit: #3ccf7f;
+    --loss: #ff5a6e;
+    --warn-bg: #3a2f00;
+    --warn-ink: #ffe27a;
+
+    --c-fuel: #ff9a3d;
+    --c-wear: #a596e6;
+    --c-tolls: #c9cf3a;
+    --c-fixed: #93a1ab;
+    --c-profit: #3ccf7f;
+    --c-board: #6d7a81;
+    --c-restart: #ff5a6e;
+    --c-schedule: #ffcd00;
+    color-scheme: dark;
+  }
+}

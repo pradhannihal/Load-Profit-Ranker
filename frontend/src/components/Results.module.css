@@ -1,0 +1,45 @@
+.results {
+  display: grid;
+  gap: 12px;
+}
+
+.stale .cards {
+  opacity: 0.55;
+}
+
+.staleNote {
+  margin: 0;
+  padding: 8px 12px 6px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  font-weight: 700;
+}
+
+.cards {
+  display: grid;
+  gap: 12px;
+}
+
+.loading {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+.more {
+  padding: 0 14px;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+}
+
+.moreBody {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 14px;
+}
+
+.disclaimer {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}

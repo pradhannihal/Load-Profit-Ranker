@@ -1,0 +1,18 @@
+.card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.heading {
+  margin: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr; /* the date needs more room than the hours */
+  gap: 12px;
+}

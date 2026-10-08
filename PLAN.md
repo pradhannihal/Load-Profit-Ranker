@@ -4,7 +4,7 @@
 > target) by **profit per day of truck time**, using an owner-operator's real
 > costs and current diesel prices. Built for my dad and a few of his trucking contacts.
 
-Status: planning · Last updated: 2026-10-05 · Source spec: `trucker-app-prompt.md` (Session 1 notes)
+Status: M1–M3 built locally (placeholder defaults; M0 interview pending) · Last updated: 2026-10-07 · Source spec: `trucker-app-prompt.md` (Session 1 notes)
 **The math lives in [`docs/formula.md`](docs/formula.md). It's the source of truth. If this plan and the formula disagree, the formula wins.**
 
 ---
@@ -92,8 +92,9 @@ All fields and math come from `docs/formula.md` §3–§5.
 
 | Layer | Choice | Why | Rejected alternative |
 |---|---|---|---|
+| Charts | **Vega-Lite** (`vega-embed`, lazy-loaded) | Declarative specs; 4 charts: profit/day, where the money goes, board vs true $/mi, days used. | Recharts/Chart.js: imperative or React-specific; Vega-Lite specs are portable. |
 | Frontend | **React + JavaScript, Vite** | You've used React; Vite is the simplest modern setup. JS (not TS) keeps the number of new things down. | **Next.js**: server rendering needs a running server and adds concepts this static app doesn't need. |
-| Styling | Plain CSS (or a classless CSS file like Pico.css) | Big tap targets and readable numbers are what matter in a truck cab. | Tailwind / component libraries: time spent learning them isn't time spent on the goals. |
+| Styling | **CSS Modules** (built into Vite), highway road-sign look; app name **Haul Math** | Big tap targets and readable numbers are what matter in a truck cab. Styles are scoped per component. | Tailwind / component libraries: time spent learning them isn't time spent on the goals. |
 | Frontend hosting | **S3 + CloudFront** | Static files, ~$0, and you learn how the pieces actually work. | **Amplify Hosting**: easier, but it hides the parts you want to learn. |
 | Backend | **Python Lambda behind API Gateway HTTP API** | Matches your Python skills; costs nothing when idle; HTTP API has a built-in JWT authorizer for R2. | **Flask on EC2/App Runner**: always-on cost and servers to patch. (API Gateway *REST* API: more config, higher cost, no benefit here.) |
 | Local backend | **Flask** as a thin dev adapter | Instant feedback loop. Same core code as Lambda. | `sam local` (needs Docker, slower loop). |
@@ -221,7 +222,7 @@ Hours are estimates for focused time. Each milestone ends with something you can
 - Output: updated `docs/formula.md` + `docs/dad-interview.md`.
 - ✅ **Test:** run 3 of Dad's real past loads through the formula on paper. Dad agrees with each verdict, or you understand why not.
 
-### M1 — Repo + engine + CI (weeks 1–2, ~7 h)
+### M1 — Repo + engine + CI (weeks 1–2, ~7 h) ✅ PR #4
 - ✅ GitHub repo exists. Still to do: `.gitignore`, README skeleton, branch protection (§7).
 - `backend/core/`, pure Python with no AWS imports, no network, no clock. **You write this.**
   - `config.py`: frozen `EngineConfig` dataclass holding every constant and default (formula §3d + defaults from §3c).
@@ -233,13 +234,13 @@ Hours are estimates for focused time. Each milestone ends with something you can
 - GitHub Actions: ruff + pytest on every PR.
 - ✅ **Test:** `pytest` passes locally and the CI check is green on a PR.
 
-### M2 — Fuel data + local API (weeks 2–3, ~6 h)
+### M2 — Fuel data + local API (weeks 2–3, ~6 h) ✅ PR #5
 - EIA key; explore the API in a scratch script; find the series id for each PADD region.
 - `core/fuel.py` (parse/validate EIA response) + `handlers/fuel_refresh.py` logic.
 - Local Flask app: `GET /fuel?region=…`, `POST /rank`, both thin adapters over `core/` (camelCase ↔ snake_case mapping lives here).
 - ✅ **Test:** `curl localhost:5000/rank` with the formula §6 loads returns exactly the fixture numbers and ranking.
 
-### M3 — React frontend, local (weeks 3–4, ~9 h)
+### M3 — React frontend, local (weeks 3–4, ~9 h) ✅ built; phone test with Dad pending
 - Vite + React (JS). Screens: Truck settings (localStorage, "estimate" badges), Compare (trip context + up to 3 load cards), Results (ranking, winner + why it won, warnings, target, breakdown).
 - Mobile-first: big inputs, numeric keyboards (`inputmode="decimal"`), readable in sunlight.
 - ✅ **Test:** run `vite --host` and open it on Dad's phone over home Wi-Fi. He compares 2 real offers, entering each one in under 30 s.
@@ -354,6 +355,8 @@ Project-level questions:
 5. When to start the v2 expense tracker: after R2 feedback, not before.
 
 ## 9. Working agreement (carried from the spec)
+**Changed 2026-10-07:** at Nihal's request, Claude built M1–M3 (incl. `core/`) and merges PRs once CI is green. Nihal reviews each PR and writes the "explain it back" notes in `docs/learning-log.md`. Scope-creep pushback still applies.
+
 Architect/mentor mode: teach the concept first, attempt before code is shown,
 explain *why* each step comes where it does, push back on scope creep and on plans
 that won't survive real data, and ask instead of guessing.
