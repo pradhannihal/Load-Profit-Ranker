@@ -1,0 +1,50 @@
+.line {
+  display: grid;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.price {
+  flex: 1;
+  font-weight: 700;
+}
+
+.meta {
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+.change {
+  min-height: 44px;
+  padding: 6px 12px 4px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.status {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}

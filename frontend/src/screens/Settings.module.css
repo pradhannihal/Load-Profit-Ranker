@@ -1,0 +1,113 @@
+.screen {
+  display: grid;
+  gap: 14px;
+}
+
+.intro {
+  margin: 4px 0 0;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+}
+
+.card {
+  display: grid;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.card h2 {
+  margin: 0;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.total {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.error {
+  margin: 0;
+  color: var(--loss);
+  font-weight: 700;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: grid;
+  gap: 8px;
+}
+
+.fieldset legend {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--tap);
+  padding: 8px 12px;
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.radio input {
+  width: 22px;
+  min-height: 22px;
+  height: 22px;
+  flex: none;
+  accent-color: var(--sign-green);
+}
+
+.small {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  min-height: var(--tap);
+  padding: 8px 16px 6px;
+  border: 2px solid var(--sign-green);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+@media (max-width: 360px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}

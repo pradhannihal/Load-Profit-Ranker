@@ -1,0 +1,47 @@
+.wrap {
+  overflow-x: auto;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.table th,
+.table td {
+  padding: 8px 6px 6px;
+  text-align: right;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+/* Row labels stay put while the numbers scroll sideways on narrow phones. */
+.table th[scope="row"],
+.table thead th:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--surface);
+}
+
+.table th[scope="row"] {
+  text-align: left;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.table thead th {
+  font-weight: 800;
+}
+
+.table tr:last-child th,
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.strong td {
+  font-weight: 800;
+}

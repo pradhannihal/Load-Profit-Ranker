@@ -1,0 +1,11 @@
+.badge {
+  flex: none;
+  padding: 1px 6px 0;
+  border-radius: 4px;
+  background: var(--sign-yellow);
+  color: var(--sign-yellow-ink);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

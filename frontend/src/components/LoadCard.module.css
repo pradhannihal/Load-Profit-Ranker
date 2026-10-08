@@ -1,0 +1,72 @@
+.card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.letter {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  padding-top: 4px;
+  border-radius: 10px;
+  background: var(--sign-green);
+  color: var(--sign-green-ink);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.nickname {
+  flex: 1;
+}
+
+.remove {
+  flex: none;
+  width: var(--tap);
+  height: var(--tap);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  background: transparent;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 8px;
+}
+
+.more {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.moreButton {
+  justify-self: start;
+  min-height: 44px;
+  padding: 6px 4px 4px;
+  border: none;
+  background: none;
+  color: var(--sign-green);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  .moreButton {
+    color: var(--profit);
+  }
+}
