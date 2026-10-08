@@ -28,3 +28,18 @@
 ### In my own words
 <!-- Nihal: 3–5 sentences on how an EIA v2 request is built (route, data, facets, sort/length)
      and why we cache the weekly price instead of calling EIA on every /rank request. -->
+
+## M1: engine + CI (2026-10-07)
+
+Built by Claude; Nihal explains it back. Code: `backend/core/`, tests: `backend/tests/`.
+
+Things worth knowing:
+- **Monthly fixed costs never change the ranking.** Fixed $/day = monthly ÷ working days, the same for every
+  load, so it's subtracted equally from each load's profit/day. It still matters for the *verdict*
+  (target met? loses money?), which is why results are blocked without it.
+- Whole-day rounding uses `ceil(round(x, 9))`, so float noise (2.0000000001) doesn't turn 2 days into 3.
+- The sort is stable: exact ties keep the order the loads were entered.
+
+### In my own words
+<!-- Nihal: walk through compute_load() for Load B in the cycle-limit test (cycleHoursRemaining=20).
+     Why does B fall below C? Which line of code makes that happen? -->
