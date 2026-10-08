@@ -19,5 +19,8 @@ frontend/dist/
 # AWS SAM build output
 .aws-sam/
 
+# Local fuel price cache
+.cache/
+
 # macOS
 .DS_Store

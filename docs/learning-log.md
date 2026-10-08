@@ -43,3 +43,15 @@ Things worth knowing:
 ### In my own words
 <!-- Nihal: walk through compute_load() for Load B in the cycle-limit test (cycleHoursRemaining=20).
      Why does B fall below C? Which line of code makes that happen? -->
+
+## M2: fuel + local API (2026-10-07)
+
+- `handlers/mapping.py` is the only place camelCase JSON meets snake_case Python. Error `field` paths
+  come back in JSON names (`loads[1].loadedMiles`) so the UI can put the message next to the right input.
+- `/rank` never calls EIA. It uses the cached price (or the override, or the $6.38 fallback). Only `/fuel`
+  fetches, at most once a day per region. In M4 that becomes a weekly scheduled Lambda + DynamoDB.
+- The EIA URL contains the API key, so the cache logs only the error *type* on failure, never the URL.
+- macOS uses port 5000 for AirPlay, so Flask runs on 5001.
+
+### In my own words
+<!-- Nihal: what happens, step by step, when the phone taps RANK? Browser -> Vite proxy -> Flask -> mapping -> engine -> back. -->

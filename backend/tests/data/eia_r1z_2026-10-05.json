@@ -1,0 +1,29 @@
+{
+  "warnings": [
+    {
+      "warning": "incomplete return",
+      "description": "The API can only return 5000 rows in JSON format.  Please consider constraining your request with facet, start, or end, or using offset to paginate results."
+    }
+  ],
+  "response": {
+    "total": "1533",
+    "dateFormat": "YYYY-MM-DD",
+    "frequency": "weekly",
+    "data": [
+      {
+        "period": "2026-10-05",
+        "duoarea": "R1Z",
+        "area-name": "PADD 1C",
+        "product": "EPD2D",
+        "product-name": "No 2 Diesel",
+        "process": "PTE",
+        "process-name": "Retail Sales",
+        "series": "EMD_EPD2D_PTE_R1Z_DPG",
+        "series-description": "Lower Atlantic (PADD 1C) No 2 Diesel Retail Prices (Dollars per Gallon)",
+        "value": "5.699",
+        "units": "$/GAL"
+      }
+    ]
+  },
+  "apiVersion": "2.1.14"
+}
