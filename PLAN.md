@@ -4,7 +4,7 @@
 > target) by **profit per day of truck time**, using an owner-operator's real
 > costs and current diesel prices. Built for my dad and a few of his trucking contacts.
 
-Status: M1–M3 built locally (placeholder defaults; M0 interview pending) · Last updated: 2026-10-07 · Source spec: `trucker-app-prompt.md` (Session 1 notes)
+Status: M1–M3 built locally, plus a wide layout for computers (placeholder defaults; M0 interview pending) · Last updated: 2026-11-03 · Source spec: `trucker-app-prompt.md` (Session 1 notes)
 **The math lives in [`docs/formula.md`](docs/formula.md). It's the source of truth. If this plan and the formula disagree, the formula wins.**
 
 ---
@@ -224,7 +224,7 @@ Hours are estimates for focused time. Each milestone ends with something you can
 - ✅ **Test:** run 3 of Dad's real past loads through the formula on paper. Dad agrees with each verdict, or you understand why not.
 
 ### M1 — Repo + engine + CI (weeks 1–2, ~7 h) ✅ PR #4
-- ✅ GitHub repo exists. Still to do: `.gitignore`, README skeleton, branch protection (§7).
+- ✅ GitHub repo, `.gitignore`, README, and branch protection on `main` (backend + frontend checks required) (§7).
 - `backend/core/`, pure Python with no AWS imports, no network, no clock. **You write this.**
   - `config.py`: frozen `EngineConfig` dataclass holding every constant and default (formula §3d + defaults from §3c).
   - `models.py`: `TripContext`, `TruckSettings`, `LoadInput`, `LoadResult`, `Ranking`.
