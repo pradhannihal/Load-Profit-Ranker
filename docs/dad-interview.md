@@ -22,7 +22,7 @@ Interview date: ____ · Questions from `docs/formula.md` §8 · ~1 h
 | 10 | 70/8 or 60/7? Does he use the 34-hr restart? | | `cycleHoursRemaining` rules |
 | 11 | Lowest profit per day he'd accept | | `targetProfitPerDay` |
 
-Project questions (PLAN §8): Does he pay for DAT or Truckstop? ___ · Would his contacts be OK entering their cost numbers? ___
+Project questions (PLAN §8): Does he pay for DAT or Truckstop? ___ · Would his contacts be OK entering their cost numbers? ___ · Does he use DAT, Numeo or another dispatch tool to find loads? ___ · Does he check whether a broker pays on time, and how? ___
 
 ## 3 real past loads (the M0 test)
 
