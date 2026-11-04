@@ -1,5 +1,6 @@
 /* Road-sign palette. Light by default; dark follows the phone setting. */
 :root {
+  --page: 560px;              /* phone column; widened on computers below */
   --sign-green: #006a4e;      /* interstate guide sign */
   --sign-green-ink: #ffffff;
   --sign-yellow: #ffcd00;     /* warning sign */
@@ -61,5 +62,12 @@
     --c-restart: #ff5a6e;
     --c-schedule: #ffcd00;
     color-scheme: dark;
+  }
+}
+
+/* Computers and tablets in landscape: use the extra width. */
+@media (min-width: 960px) {
+  :root {
+    --page: 1120px;
   }
 }

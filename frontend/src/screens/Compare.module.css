@@ -100,3 +100,32 @@
 .resultsAnchor {
   scroll-margin-top: 90px;
 }
+
+.top,
+.loads {
+  display: grid;
+  gap: 14px;
+}
+
+/* Computers: trip + diesel side by side, load cards in columns, centered Rank button. */
+@media (min-width: 960px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .loads {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+
+  .loads .addButton {
+    align-self: stretch;
+    min-height: 200px;
+  }
+
+  .actions {
+    grid-template-columns: minmax(0, 420px);
+    justify-content: center;
+  }
+}
