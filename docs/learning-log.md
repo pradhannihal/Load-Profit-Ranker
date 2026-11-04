@@ -68,3 +68,15 @@ Things worth knowing:
 ### In my own words
 <!-- Nihal: why does "Re-rank" appear only after you change something? (Hint: App.jsx compares the
      request body to the one that was last ranked.) -->
+
+## Research: how Numeo Spot scores loads (2026-11-03)
+
+- Numeo (an AI dispatcher on top of DAT) shows a per-load profit: rate − fuel − driver pay − tolls,
+  and colors it green or a warning color against a threshold you set. Details: `docs/competitors/numeo.md`.
+- It ignores how many days the load ties up the truck, fixed costs and maintenance. Profit per day is
+  what makes Haul Math different.
+- Things it has that we don't: automatic toll estimates and broker credit checks (paid data).
+
+### In my own words
+<!-- Nihal: using Numeo's blog example (A: $1,500, 500+180 mi; B: $1,460, 520+30 mi), when could A
+     still win on profit per day? -->

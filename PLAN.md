@@ -71,7 +71,8 @@ All fields and math come from `docs/formula.md` §3–§5.
 | Deferred | Why / when to revisit |
 |---|---|
 | Market rate comparison | No free lane-level data. Revisit only if Dad already pays for DAT and wants it side by side. |
-| Broker grade / risky-broker deduction | No sourced percentages; slows entry (formula §7). Later: one "risky broker" checkbox. |
+| Broker grade / risky-broker deduction | No sourced percentages; slows entry (formula §7). Later: one "risky broker" checkbox. Numeo does credit checks with paid data (`docs/competitors/numeo.md`). |
+| Automatic toll estimates | Numeo has this on its Pro plan. Revisit with R1.5 routing; typed tolls work until then. |
 | Terrain MPG penalty | Unsourced. Later: separate loaded vs. empty MPG from Dad's fuel records. |
 | Worst-case delay "High Risk" flag | v1.1, once Dad's real delay experience sets the hours. |
 | Round-trip / outbound market proxy | Needs load board data. Later: Dad tags the drop-off market strong/average/weak. |
