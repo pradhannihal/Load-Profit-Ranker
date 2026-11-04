@@ -1,6 +1,6 @@
 # Numeo Spot: how it scores loads
 
-Checked 2026-11-03. Sources: the logged-in app at agent.numeo.ai (read-only), Numeo's help docs and its blog.
+Checked 2026-11-03. Sources: Numeo's public help docs and blog.
 Numeo Spot is an AI dispatcher for fleet dispatchers. It sits on top of DAT and other load boards (mainly
 through a Chrome extension inside DAT) and also emails brokers and negotiates rates.
 
@@ -25,10 +25,9 @@ also shown: RPM (rate / loaded miles) and RPM including deadhead
 Numeo says its AI weighs RPM, deadhead, lane history, broker reliability (days to pay, disputes) and backhaul
 potential, and it adds a factoring/credit check on the broker. It doesn't publish the formula or the weights.
 
-## What we couldn't see
+## Limits of this research
 
-Load Hub showed no loads, because no load boards are connected on our account, and the extension only runs inside
-DAT. We never watched it score a real load. Everything above comes from Numeo's docs and blog.
+Numeo doesn't publish its exact formula, defaults or thresholds. Everything above comes from its public docs and blog.
 
 ## Compared to Haul Math
 
