@@ -43,3 +43,11 @@
   font-size: 0.85rem;
   color: var(--ink-2);
 }
+
+/* Computers: result cards side by side. */
+@media (min-width: 960px) {
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: start;
+  }
+}

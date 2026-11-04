@@ -38,32 +38,36 @@ export default function Compare({
 
   return (
     <div className={styles.screen}>
-      <TripContext trip={trip} onChange={setTrip} errors={errors} maxCycleHours={settings.advanced.maxCycleHours} />
-      <DieselLine
-        fuel={fuel}
-        regionName={regionName}
-        override={trip.dieselOverride}
-        onOverride={(v) => setTrip({ ...trip, dieselOverride: v })}
-        error={errors["truckSettings.dieselPrice"]}
-      />
+      <div className={styles.top}>
+        <TripContext trip={trip} onChange={setTrip} errors={errors} maxCycleHours={settings.advanced.maxCycleHours} />
+        <DieselLine
+          fuel={fuel}
+          regionName={regionName}
+          override={trip.dieselOverride}
+          onOverride={(v) => setTrip({ ...trip, dieselOverride: v })}
+          error={errors["truckSettings.dieselPrice"]}
+        />
+      </div>
 
       <h2 className={styles.loadsHeading}>Load offers</h2>
-      {loads.map((load, i) => (
-        <LoadCard
-          key={load.id}
-          letter={LETTERS[i]}
-          index={i}
-          load={load}
-          errors={errors}
-          onChange={(next) => setLoads(loads.map((l) => (l.id === load.id ? next : l)))}
-          onRemove={loads.length > 1 ? () => setLoads(loads.filter((l) => l.id !== load.id)) : null}
-        />
-      ))}
-      {loads.length < MAX_LOADS && (
-        <button type="button" className={styles.addButton} onClick={() => setLoads([...loads, emptyLoad()])}>
-          + Add load {LETTERS[loads.length]}
-        </button>
-      )}
+      <div className={styles.loads}>
+        {loads.map((load, i) => (
+          <LoadCard
+            key={load.id}
+            letter={LETTERS[i]}
+            index={i}
+            load={load}
+            errors={errors}
+            onChange={(next) => setLoads(loads.map((l) => (l.id === load.id ? next : l)))}
+            onRemove={loads.length > 1 ? () => setLoads(loads.filter((l) => l.id !== load.id)) : null}
+          />
+        ))}
+        {loads.length < MAX_LOADS && (
+          <button type="button" className={styles.addButton} onClick={() => setLoads([...loads, emptyLoad()])}>
+            + Add load {LETTERS[loads.length]}
+          </button>
+        )}
+      </div>
 
       {fixedTotal <= 0 && (
         <div className={styles.callout} role="status">

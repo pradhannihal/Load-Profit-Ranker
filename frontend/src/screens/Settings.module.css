@@ -111,3 +111,15 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Computers: settings cards in two columns. */
+@media (min-width: 960px) {
+  .screen {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .intro {
+    grid-column: 1 / -1;
+  }
+}
